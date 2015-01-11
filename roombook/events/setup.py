@@ -1,6 +1,7 @@
 import os
 import sys
 import shutil
+import events
 import random
 import datetime
 if __name__ == "__main__":
@@ -37,7 +38,7 @@ def locations():
 	'''
 	locations in college'''
 	filepath=os.path.join(os.getcwd(),SETUP_SUPPORT_FOLDER,'locations')
-	f=file(filepath)
+	f=open(filepath,'r')
 	loc=f.readlines()
 	f.close()
 	for i in loc:
@@ -48,7 +49,7 @@ function_list.append(locations)
 #------------------------------------------------------------------------------------------------
 def run_function(fn):
 	'''Runs the function and acts as a wrapper'''
-	print(fn.func_name.replace('_',' ').capitalize())
+	print(fn.__name__.replace('_',' ').capitalize())
 	fn()
 	print ('--------->Done')
 	
