@@ -89,3 +89,5 @@ if __name__=='__main__':
 	print( '================================================================')
 	print( 'SETUP COMPLETE')
 	print( '================================================================')
+	
+# Gmail, github, pythonanywhere common password - 1q@2w#3e$	
