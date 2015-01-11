@@ -4,6 +4,9 @@ venv
 mediafiles
 staticfiles
 ref
+bin
+include
+lib
 
 #these files
 *~
@@ -13,3 +16,5 @@ arjoonn/arjoonn/settings/local.py
 #databases and setup support
 *sqlite3
 
+#OS files 
+.DS_Store
