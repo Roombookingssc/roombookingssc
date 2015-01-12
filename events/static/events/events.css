@@ -61,14 +61,6 @@ td ul li a {
   text-decoration: underline;
 }
 
-.month tr:first-child {
-  color: #136cea;
-  font-size: 2em;
-  font-family: 'Fjalla One', sans-serif;
-  text-decoration: underline;
-
-}
-
 .month tr:nth-child(2) {
   background-color: #A4C739;
   color: white;
@@ -81,8 +73,8 @@ td ul li a {
 }
 
 .week td{
-  width:15%;
-  height:15%;
+  width: 15%;
+  height: 15%;
 }
 
 .noday td {
