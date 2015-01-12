@@ -20,19 +20,19 @@ ul {
 table {
   width: 95%;
   font-size: 1.1em;
-  border-left: 1px solid #d6d6d6;
+  /*border-left: 1px solid #d6d6d6;*/
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 1);
 }
 
 th {
-  border-right: 1px solid #d6d6d6;
+  /*border-right: 1px solid #d6d6d6;*/
   text-align: center;
   padding: 20px 0;
 }
 
 td {
-  border-right: 1px solid #d6d6d6;  
+  /*border-right: 1px solid #d6d6d6;*/  
   text-align: center;
   border-bottom: 1px solid #d6d6d6;
   width: 24.2857%
@@ -115,7 +115,6 @@ td.today.date {
   text-shadow: 1px 1px 3px rgba(25,25,25, 0.3);
 }
 
-
 tr:nth-child(2) {
   height: 75%;
 }
@@ -129,6 +128,21 @@ td.event.important {
   font-weight: bold;
   color: #fff;
   text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.month-nav {
+  color: black;
+}
+
+.month-nav:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+.month tr:first-child {
+  color: black;
+  font-size: 3em;
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {

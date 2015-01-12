@@ -44,12 +44,14 @@
   <hr class="divider">
 
   <section>
-    <div class="wrapper">
-      <div style="text-align: center; margin: 15px 0;">
+    <div class="containter">
+      <div style="text-align: center; margin-top: 60px;">
         <a class="month-nav" href={{last}} alt='last month'>&laquo; Previous</a> &nbsp;
         <a class="month-nav" href={{next}} alt='next month'>Next &raquo;</a>
       </div>
-      {{events_calender}}
+      <div id="calender" style="margin-top: 20px;">
+        {{events_calender}}
+      </div>
     </div>
   </section>
 {%endblock%}
