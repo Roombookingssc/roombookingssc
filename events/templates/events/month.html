@@ -6,28 +6,49 @@
 {%endblock%}
 
 {%block body%}
-  <section>
-    <div class="containter">
-      <div id="calender" style="margin-top: 110px;">
+<div role="tabpanel">
+
+  <h2>USELESS STUFF</h2>
+
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#cal" aria-controls="calendar" role="tab" data-toggle="tab">Calendar</a></li>
+    <li role="presentation"><a href="#status" aria-controls="status" role="tab" data-toggle="tab">Booking status</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <!-- CALENDAR --> 
+    <div role="tabpanel" class="tab-pane fade active" id="cal">
+      <div id="calendar" style="margin-top: 40px;">
         {{events_calender}}
       </div>
       <div style="text-align: center; margin-top: 20px;">
         <a class="month-nav" href={{last}} alt='last month'>&laquo; Previous</a> &nbsp;
         <a class="month-nav" href={{next}} alt='next month'>Next &raquo;</a>
-      </div>
+      </div>  
     </div>
-  </section>
-  <div>
-    <table>
-    <thead><tr><th>Location</th><th>Bookings</th></tr></thead>
-    <tbody>
-       {%for schedule in schedules%}
-        <tr>
+    <!-- BOOKING STATUS -->
+    <div role="tabpanel" class="tab-pane fade" id="status">
+      <table>
+        <thead>
+          <tr>
+            <th>Location</th>
+            <th>Bookings</th>
+          </tr>
+        </thead>
+        <tbody>
+         {%for schedule in schedules%}
+          <tr>
             <td>{% ifchanged schedule.location%}{{schedule.location}}{%endifchanged%}</td>
             <td>
-           <a href={{schedule.event.get_absolute_url}} >{{schedule.title}}{{schedule.start}}{{schedule.end}}</a>
-           </td>
-        </tr>
+              <a href={{schedule.event.get_absolute_url}}>{{schedule.title}}{{schedule.start}}{{schedule.end}}</a>
+            </td>
+          </tr>
         {%endfor%}
+      </tbody>
+    </table> 
   </div>
+
+</div>
 {%endblock%}
