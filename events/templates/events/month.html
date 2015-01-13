@@ -18,8 +18,16 @@
     </div>
   </section>
   <div>
+    <table>
+    <thead><tr><th>Location</th><th>Bookings</th></tr></thead>
+    <tbody>
        {%for schedule in schedules%}
+        <tr>
+            <td>{% ifchanged schedule.location%}{{schedule.location}}{%endifchanged%}</td>
+            <td>
            <a href={{schedule.event.get_absolute_url}} >{{schedule.title}}{{schedule.start}}{{schedule.end}}</a>
+           </td>
+        </tr>
         {%endfor%}
   </div>
 {%endblock%}
