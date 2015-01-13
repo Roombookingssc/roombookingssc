@@ -17,4 +17,9 @@
       </div>
     </div>
   </section>
+  <div>
+       {%for schedule in schedules%}
+           <a href={{schedule.event.get_absolute_url}} >{{schedule.title}}{{schedule.start}}{{schedule.end}}</a>
+        {%endfor%}
+  </div>
 {%endblock%}

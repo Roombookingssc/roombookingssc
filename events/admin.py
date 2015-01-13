@@ -12,3 +12,5 @@ class ScheduleAdminInline(admin.TabularInline):
 class EventAdmin(admin.ModelAdmin):
 	inlines=[ScheduleAdminInline,PosterAdminInline,PhotoAdminInline]
 admin.site.register(Event,EventAdmin)
+admin.site.register(Organization)
+admin.site.register(Location)

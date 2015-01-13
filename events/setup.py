@@ -32,7 +32,18 @@ def clean_to_string(string):
 			new_str+=i
 	return new_str
 
-
+def societies():
+    '''Societis in college'''
+    filepath=os.path.join(os.getcwd(),SETUP_SUPPORT_FOLDER,'societies')
+    f=open(filepath,'r')
+    soc=f.readlines()
+    f.close()
+    for i in soc:
+        s=events.models.Organization()
+        s.name=i.strip().capitalize()[:40]
+        s.save()
+function_list.append(societies)
+#-----------------------------------
 
 def locations():
 	'''
@@ -46,7 +57,7 @@ def locations():
 		l.name=i.strip().capitalize()[:40]
 		l.save()
 function_list.append(locations)
-#------------------------------------------------------------------------------------------------
+#-----------------------------------------------
 def run_function(fn):
 	'''Runs the function and acts as a wrapper'''
 	print(fn.__name__.replace('_',' ').capitalize())

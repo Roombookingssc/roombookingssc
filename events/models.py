@@ -3,6 +3,7 @@ from django.db import models
 from django import forms
 
 
+from django.utils import timezone
 from datetime import date
 from calendar import HTMLCalendar as HTMLCalender
 from django.utils.html import conditional_escape as esc
@@ -12,7 +13,7 @@ class Location(models.Model):
     '''
     Locations where events need to be booked
     '''
-    def __unicode__(self):
+    def __str__(self):
         return str(self.name)
         
     name=models.CharField(max_length=40)
@@ -24,7 +25,7 @@ class Location(models.Model):
 
 class Organization(models.Model):
     '''Any organization in college that can organize events'''
-    def __unicode_(self):
+    def __str__(self):
         return self.name
     name=models.CharField(max_length=100)
 
@@ -32,27 +33,30 @@ class Event(models.Model):
     '''
     Event in college
     '''
-    def __unicode__(self):
+    def __str__(self):
         return self.name
     name=models.CharField(max_length=40)
     nickname=models.CharField(max_length=10)#nickname for url
     description=models.TextField(blank=True)
     organizer=models.ForeignKey(Organization,related_name='organizer')
-    start=models.DateTimeField()
-    end=models.DateTimeField()
+    start=models.DateTimeField(default=timezone.now())
+    end=models.DateTimeField(default=timezone.now())
     #make sure that the event is not acknowledged by default
     approved=models.NullBooleanField(default=None)
     def get_absolute_url(self):
         return reverse('event_detail',args=[self.nickname])
-        
+class NewForm(forms.ModelForm):
+	class Meta:
+		model=Event
+		exclude=['approved']
 class Schedule(models.Model):
     '''Schedule for an event
     '''
     title=models.CharField(max_length=50)
     description=models.TextField(blank=True)
     location=models.ForeignKey(Location,related_name='location')
-    start=models.DateTimeField()
-    end=models.DateTimeField()
+    start=models.DateTimeField(default=timezone.now())
+    end=models.DateTimeField(default=timezone.now())
     event=models.ForeignKey(Event,related_name='event')
     
 
