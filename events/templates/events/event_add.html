@@ -1,5 +1,26 @@
 {%extends 'base.html'%}
-{%block head%}{%endblock%}
+
+{%block head%}
+  <style type="text/css">
+  .event-add-form {
+    max-width: 960px;
+    margin: 80px auto;
+  }
+  </style>
+{%endblock%}
+
 {%block body%}
+  <div class="event-add-form">
     {{form}}
+    <button type="submit" class="btn btn-primary" style="margin-top: 20px; float: right;">Add Event</button>
+  </div>
+{%endblock%}
+
+{%block script%}
+  <script type="text/javascript">
+    // Beautify
+    $('input').addClass('form-control');
+    $('select').addClass('form-control');
+    $('textarea').addClass('form-control');
+  </script>
 {%endblock%}
