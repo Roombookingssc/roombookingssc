@@ -6,9 +6,8 @@
 {%endblock%}
 
 {%block body%}
-<div role="tabpanel">
 
-  <h2>USELESS STUFF</h2>
+<div role="tabpanel" style="margin-top: 80px;">
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
@@ -19,17 +18,17 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <!-- CALENDAR --> 
-    <div role="tabpanel" class="tab-pane fade active" id="cal">
+    <div role="tabpanel" class="tab-pane active" id="cal">
       <div id="calendar" style="margin-top: 40px;">
         {{events_calender}}
-      </div>
-      <div style="text-align: center; margin-top: 20px;">
-        <a class="month-nav" href={{last}} alt='last month'>&laquo; Previous</a> &nbsp;
-        <a class="month-nav" href={{next}} alt='next month'>Next &raquo;</a>
-      </div>  
+        <div style="text-align: center; margin-top: 20px;">
+          <a class="month-nav" href={{last}} alt='last month'>&laquo; Previous</a> &nbsp;
+          <a class="month-nav" href={{next}} alt='next month'>Next &raquo;</a>
+        </div> 
+      </div> 
     </div>
     <!-- BOOKING STATUS -->
-    <div role="tabpanel" class="tab-pane fade" id="status">
+    <div role="tabpanel" class="tab-pane" id="status">
       <table>
         <thead>
           <tr>
