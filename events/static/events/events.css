@@ -155,7 +155,16 @@
 /* STATUS STYLES 
 ***************************/
 
+#status table {
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
 
+#status th {
+  font-size: 1.5em;
+  text-align: center;
+}
 
 
 
