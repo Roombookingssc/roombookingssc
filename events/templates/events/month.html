@@ -3,11 +3,21 @@
 {%block head%}
   {%load static%}
   <link rel="stylesheet" type="text/css" href='{% static "events/events.css"%}'>
+  <style type="text/css">
+    .add-button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 25px 20px 0 0;  
+    }
+  </style>
 {%endblock%}
 
 {%block body%}
 
-<div role="tabpanel" style="margin-top: 80px;">
+<a href="{% url 'event_add' %}"><button class="btn btn-success add-button">+ Add Event</button></a>
+
+<div role="tabpanel" style="margin-top: 70px;">
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
