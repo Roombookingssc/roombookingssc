@@ -1,3 +1,4 @@
+from django.forms.models import modelformset_factory
 from django.core.urlresolvers import reverse
 from django.db import models
 from django import forms
@@ -58,7 +59,9 @@ class Schedule(models.Model):
     start=models.DateTimeField(default=timezone.now())
     end=models.DateTimeField(default=timezone.now())
     event=models.ForeignKey(Event,related_name='event')
-    
+
+#--------------formset
+ScheduleFormset=modelformset_factory(Schedule,extra=2)    
 
 class Poster(models.Model):
     '''

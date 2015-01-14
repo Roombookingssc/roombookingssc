@@ -21,17 +21,21 @@ def event_add(request):
     template='events/event_add.html'
     if request.method=='GET':
         data['form']=models.NewForm()
+        data['schform']=models.ScheduleFormset()
         return render(request,template,data)
     elif request.method=='POST':
         form=models.NewForm(request.POST)
-        if form.is_valid():
+        schform=models.ScheduleFormset(request.POST)
+        if form.is_valid() and schform.is_valid():
             n=form.save()
+            s=schform.save()
             template='events/successful.html'
             data['event']=n
             return render(request,template,data)
         else:
             data['form']=form
-            return render(requet,template,data)
+            data['schform']=schform
+            return render(request,template,data)
 def event_month(request,year,month):
     '''
     monthly calender for the month's events
