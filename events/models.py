@@ -59,9 +59,12 @@ class Schedule(models.Model):
     start=models.DateTimeField(default=timezone.now())
     end=models.DateTimeField(default=timezone.now())
     event=models.ForeignKey(Event,related_name='event')
-
+class SchForm(forms.ModelForm):
+    class Meta:
+        model=Schedule
+        exclude=['event']
 #--------------formset
-ScheduleFormset=modelformset_factory(Schedule,extra=2)    
+ScheduleFormset=modelformset_factory(Schedule,form=SchForm,extra=1)
 
 class Poster(models.Model):
     '''
