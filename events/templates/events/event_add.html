@@ -3,12 +3,19 @@
 {%block head%}
   <style type="text/css">
   .event-add-form {
-    max-width: 760px;
+    max-width: 900px;
     margin: auto;
+    margin-bottom: 20px;
     padding: 0 20px;
   }
   body {
     border-top: 10px solid #2377ba;
+  }
+  .heading {
+    text-align: center; 
+    margin: 0; 
+    padding: 0; 
+    margin-top: 30px;
   }
   </style>
 {%endblock%}
@@ -18,14 +25,15 @@
     {%csrf_token%}
   <h1 style="text-align: center; margin: 0; padding: 0; margin-top: 30px;">New Event</h1>
   <div class="event-add-form">
-    {{form}}
-    <hr>
-    <h2>Room Bookings</h2>
-    {{schform}}
-    <button type="submit" class="btn btn-primary" style="margin-top: 20px; float: right;">
-    Add Event</button>
+    <form action={%url 'event_add'%} method='post'>
+      {%csrf_token%}
+      {{form}}
+      <hr>
+      <h1 class="heading">Room Allotment</h1>
+      {{schform}}
+      <button type="submit" class="btn btn-primary" style="margin-top: 20px; margin-bottom: 20px; float: right;">Add Event</button>
     </form>
-    <a href="{% url 'event_home' %}"><button type="submit" class="btn btn-danger" style="margin-top: 20px; float: right; margin-right: 10px;">Cancel</button></a>
+  <a href="{% url 'event_home' %}"><button class="btn btn-danger" style="margin-top: 20px; margin-bottom: 20px;float: right; margin-right: 10px;">Cancel</button></a>
   </div>
 {%endblock%}
 
