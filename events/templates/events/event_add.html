@@ -17,15 +17,19 @@
     padding: 0; 
     margin-top: 30px;
   }
+  .hide {
+    display: none;
+  }
+  .show {
+    display: inherit;
+  }
   </style>
 {%endblock%}
 
 {%block body%}
-    <form role='form' action={%url 'event_add'%} method='post'>
-    {%csrf_token%}
   <h1 style="text-align: center; margin: 0; padding: 0; margin-top: 30px;">New Event</h1>
   <div class="event-add-form">
-    <form action={%url 'event_add'%} method='post'>
+    <form action={%url 'event_add'%} method='post' class="hide">
       {%csrf_token%}
       {{form}}
       <hr>
@@ -33,16 +37,17 @@
       {{schform}}
       <button type="submit" class="btn btn-primary" style="margin-top: 20px; margin-bottom: 20px; float: right;">Add Event</button>
     </form>
-  <a href="{% url 'event_home' %}"><button class="btn btn-danger" style="margin-top: 20px; margin-bottom: 20px;float: right; margin-right: 10px;">Cancel</button></a>
+  <a href="{% url 'event_home' %}"><button class="btn btn-danger" style="margin-top: 20px; margin-bottom: 20px; float: right; margin-right: 10px;">Cancel</button></a>
   </div>
 {%endblock%}
 
 {%block script%}
   <script type="text/javascript">
     // Beautify
-    $('input').addClass('form-control');
-    $('select').addClass('form-control');
-    $('textarea').addClass('form-control');
-    $('label').css('margin', '8px 0');
+    $(window).load(function (){
+      $('input, select, textarea').addClass('form-control');  
+      $('label').css('margin', '8px 0');
+      $('form').addClass('show');
+    });
   </script>
 {%endblock%}
